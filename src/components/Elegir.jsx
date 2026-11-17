@@ -20,7 +20,7 @@ export default function Elegir({ carrito, cambiar, abrirInfo }) {
       <div className="wrap">
         <motion.h2
           className="titulo-seccion"
-          initial={{ opacity: 0, y: 30 }}
+          initial={{ y: 16 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: '-15% 0px' }}
           transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}

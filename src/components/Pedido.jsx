@@ -8,6 +8,10 @@ import { IconoWA } from './Iconos'
 const suave = { duration: 0.38, ease: [0.16, 1, 0.3, 1] }
 
 export default function Pedido({ items, cambiar, vaciar, abierto, setAbierto, alEnviar }) {
+  // Vaciar pide un segundo toque, así no se borra el pedido sin querer.
+  const [confirmar, setConfirmar] = useState(false)
+  useEffect(() => { if (!confirmar) return; const t = setTimeout(() => setConfirmar(false), 3500); return () => clearTimeout(t) }, [confirmar])
+  const tocarVaciar = () => { if (confirmar) { setConfirmar(false); vaciar() } else setConfirmar(true) }
   const [nombre, setNombre] = useState('')
   const [entrega, setEntrega] = useState('Retiro')
   const [pago, setPago] = useState(TIENDA.pago.opciones[0])
@@ -106,9 +110,9 @@ export default function Pedido({ items, cambiar, vaciar, abierto, setAbierto, al
                     <a className="boton boton-wa boton-ancho" href={enviar} target="_blank" rel="noopener noreferrer" onClick={() => alEnviar?.()}>
                       <IconoWA size={20} /> Enviar pedido por WhatsApp
                     </a>
-                    <button className="boton boton-ancho boton-vaciar" onClick={vaciar}>
+                    <button className={'boton boton-ancho boton-vaciar' + (confirmar ? ' confirmar' : '')} onClick={tocarVaciar} aria-live="polite">
                       <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="M4 7h16M9.5 7V4.5h5V7M6.5 7l1 13h9l1-13M10 11v5.5M14 11v5.5" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" /></svg>
-                      Vaciar carrito
+                      {confirmar ? '¿Seguro? Tocá de nuevo para vaciar' : 'Vaciar carrito'}
                     </button>
                   </div>
                 </>

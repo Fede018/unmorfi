@@ -741,3 +741,46 @@ html::-webkit-scrollbar-thumb { background: #cfc8bd; }
 :root .cerrar-carrito:hover { background: #e8e4dd; }
 .pago-unico { display: inline-flex; align-items: center; min-height: 44px; padding: 0 18px; border-radius: 999px; background: var(--marca); color: #fff; font-weight: 700; }
 .celu-stepper button:disabled { opacity: .35; }
+
+/* ===== Vista previa: capa de las skills de diseño (impeccable, Vercel, Emil, taste, AccessLint) ===== */
+:root { --ease-out: cubic-bezier(0.23, 1, 0.32, 1); accent-color: var(--marca); }
+html { -webkit-text-size-adjust: 100%; }
+@media (pointer: fine) { html { overscroll-behavior-y: none; } }
+a, button, [role='button'], input, label { touch-action: manipulation; }
+html { scrollbar-color: #cfc8bd transparent; }
+::placeholder { color: #8a8278; opacity: 1; }
+a { text-underline-offset: 3px; }
+:focus-visible { outline: 2.5px solid var(--marca); outline-offset: 3px; }
+.contacto :focus-visible, .intro :focus-visible { outline-color: #fff; }
+
+/* "Así de fácil": sin tarjetas dentro de la tarjeta; los pasos se separan con una línea fina */
+.pasos-mini .pasos-lista { gap: 0; }
+.pasos-mini .pasos-lista li { background: none; border-radius: 0; padding: 6px 22px; }
+.pasos-mini .pasos-lista li + li { box-shadow: inset 1px 0 0 var(--linea); }
+.pasos-mini .pasos-lista li::before { background: var(--marca-suave, #e6efe4); color: var(--marca); }
+@media (max-width: 1100px) { .pasos-mini .pasos-lista li { padding: 10px 12px; } .pasos-mini .pasos-lista li + li { box-shadow: none; } }
+
+/* Respuesta al toque: todo lo que se aprieta se hunde un poquito */
+.filtro-opcion:active { transform: scale(.97); transition-duration: .12s; }
+.celu-tarjeta-texto:active, .celu-cat:active, .celu-banner-boton:active { transform: scale(.97); }
+.celu-tarjeta-texto, .celu-cat, .celu-banner-boton { transition: transform .16s var(--ease-out); }
+
+/* Tarjetas: suben 2px y la foto hace un zoom chico dentro de su marco */
+@media (hover: hover) and (min-width: 900px) {
+  .tarjeta { transition: transform .3s var(--ease-out), border-color .2s, box-shadow .3s var(--ease-out); }
+  .tarjeta:hover { transform: translateY(-2px); }
+  .tarjeta:hover .tarjeta-foto img { transform: scale(1.03); }
+  .tarjeta:hover .foto-recorte img { transform: scale(1.03); }
+}
+
+/* Vaciar carrito: segundo toque para confirmar */
+:root .boton-vaciar.confirmar { background: #fff; color: #b82e21; box-shadow: inset 0 0 0 2px #d93a2b; }
+
+/* Números alineados en precios y contadores */
+.celu-tarjeta-texto em, .filtro-cuenta, .total strong { font-variant-numeric: tabular-nums; }
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { transition-duration: .01ms !important; animation-duration: .01ms !important; animation-iteration-count: 1 !important; }
+}
+/* Barra de abajo del celu: fondo sólido para que no se transparenten los textos de atrás */
+.celu-tabs { background: #fff; }

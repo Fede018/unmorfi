@@ -12,7 +12,7 @@ export default function Contacto() {
       <div className="wrap contacto-centro">
         {TIENDA.logo?.blanco && <img src={TIENDA.logo.blanco} alt="" className="contacto-logo" />}
         <motion.h2
-          initial={{ opacity: 0, y: 40 }}
+          initial={{ y: 16 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: '-15% 0px' }}
           transition={{ duration: 0.9, ease: [0.16, 1, 0.3, 1] }}

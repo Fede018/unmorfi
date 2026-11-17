@@ -130,7 +130,6 @@ function IntroFoto() {
         )}
 
         <div className="intro-foto-texto wrap">
-          <motion.span className="intro-chip" {...entrar(0.1)}>Casero · Dulce y salado · Pedidos por WhatsApp</motion.span>
           <motion.h1 {...entrar(0.2)}>{frase}</motion.h1>
           <motion.p {...entrar(0.3)}>Elegí lo que te guste, armá tu pedido y te lo preparamos apenas se acredita el pago.</motion.p>
           <motion.div className="intro-botones" {...entrar(0.4)}>

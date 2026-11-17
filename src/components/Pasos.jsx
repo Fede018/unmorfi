@@ -1,7 +1,7 @@
 const PASOS = [
   ['Elegí', 'Dulce o salado, sumá al carrito.'],
   ['Pedí', 'Te llega armado por WhatsApp.'],
-  ['Pagá', 'Transferencia o Mercado Pago.'],
+  ['Pagá', 'Por transferencia, antes de cocinar.'],
   ['Disfrutá', 'Retirás o te lo llevamos.'],
 ]
 
